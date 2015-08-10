@@ -1,0 +1,3 @@
+# Blog
+
+Blog\BlogApi\Api.Common\Sql CONTÉM O ARQUIVO PARA CRIAÇÃO DO BANCO DE DADOS
