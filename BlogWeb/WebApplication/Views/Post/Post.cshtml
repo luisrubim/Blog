@@ -1,0 +1,130 @@
+﻿@using WebApplication.Models
+@model  PostViewModel
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/_BootStrap.cshtml";
+}
+
+<div class="blog-header">
+    <h1 class="blog-title">@Html.DisplayFor(x=>x.Post.Titulo)</h1>
+</div>
+
+<div class="row">
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+        <!-- Blog Post -->
+        <!-- Title -->
+        <!-- Author -->
+        <p class="blog-post-meta">
+           Postado em @Html.DisplayFor(x => x.Post.Data) por <a href="http://getbootstrap.com/examples/blog/#">@Html.DisplayFor(x => x.Post.Usuario.Nome)</a>
+        </p>
+        <hr>
+         <!-- Post Content -->
+        <p>@Html.DisplayFor(x => x.Post.Corpo)</p>
+
+        <p>Tags: @Model.ReturnTag()</p>
+        <hr>
+        <!-- Comments Form -->
+        <div class="well">
+            <h4>Postar Comentário:</h4>
+            @using (Html.BeginForm("Post", "Post", FormMethod.Post, new { @class = "form-signin" }))
+            {
+                @Html.HiddenFor(x=>x.Post.Id)
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                @Html.TextAreaFor(x => x.ComentarioInserir.Mensagem, new { @class = "form-control",rows="3", required = "required" })
+                @Html.ValidationMessageFor(m => m.ComentarioInserir.Mensagem)
+                <br />
+                
+                if (Request.IsAuthenticated)
+                {
+                    <button type="submit" class="btn btn-primary">Salvar Comentário</button>
+                }
+                else
+                {
+                    @Html.ActionLink("Logar para comentar", "Logar", "Usuario", new { returnUrl = "/Post/Post/" + @Model.Post.Id }, null)
+                }
+            }
+        </div>
+        <hr>
+        <!-- Comment -->
+        @foreach (var item in Model.Comentarios.OrderByDescending(x=>x.Data))
+        {
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        @item.Usuario.Nome
+                        <small>@item.Data</small>
+                    </h4>
+                    @item.Mensagem
+                </div>
+            </div>
+        }
+    </div>
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+        <!-- Blog Search Well -->
+        <div class="well">
+            <h4>Blog Search</h4>
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+            <!-- /.input-group -->
+        </div>
+        <!-- Blog Categories Well -->
+        <div class="well">
+            <h4>Blog Categories</h4>
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                        <li>
+                            <a href="#">Category Name</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- Side Widget Well -->
+        <div class="well">
+            <h4>Side Widget Well</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

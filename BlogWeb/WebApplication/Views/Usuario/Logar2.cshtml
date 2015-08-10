@@ -1,0 +1,60 @@
+﻿@model Business.Entitie.Usuario
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_BootStrap.cshtml";
+}
+
+<div class="blog-header">
+    <h2>Efetuar Login</h2>
+</div>
+
+@using (Html.BeginForm("Logar", "Usuario", FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+        <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email", required = "required" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="email">Senha:</label>
+                @Html.TextBoxFor(x => x.Senha, new { @class = "form-control", type = "password", placeholder = "Password", required = "required" })
+                @Html.ValidationMessageFor(m => m.Senha)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Logar</button>
+}
+
+@*<form role="form">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="email">Senha:</label>
+                <input type="password" class="form-control" id="pwd">
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Logar</button>
+</form>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

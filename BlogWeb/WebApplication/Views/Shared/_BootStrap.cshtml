@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/blog/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="~/Scripts/ie10-viewport-bug-workaround.js"></script>
+
+    <title>@ViewBag.Title</title>
+
+
+    <style>
+     .field-validation-error {
+        color: #f00;
+    }
+
+    .field-validation-valid {
+        display: none;
+    }
+
+    .input-validation-error {
+        border: 1px solid #f00;
+        background-color: #fee;
+    }
+
+    .validation-summary-errors {
+        font-weight: bold;
+        color: #f00;
+    }
+
+    .validation-summary-valid {
+        display: none;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                @Html.ActionLink("Principal", "Index", "Post",null, new { @class = "blog-nav-item active" })
+                @Html.ActionLink("Deslogar", "Deslogar", "Usuario",null, new { @class = "blog-nav-item" })
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="blog-footer">
+        <p>Exemplo Blog Simples EduApp</p>
+    </footer>
+
+        @*<script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/ie10-viewport-bug-workaround.js"></script>*@
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿@using Business.Entitie
+@model  Post
+@{
+    ViewBag.Title = "Inserir Post";
+    Layout = "~/Views/Shared/_BootStrap.cshtml";
+}
+<div class="blog-header">
+</div>
+<div class="well">
+    <h4>Inserir Post</h4>
+    <br />
+    @using (Html.BeginForm("Inserir", "Post", FormMethod.Post, new { @class = "form-signin" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+       <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="email">Título:</label>
+                    @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(m => m.Titulo)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="email">Corpo:</label>
+                    @Html.TextAreaFor(x => x.Corpo, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(m => m.Corpo)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <input type="text" id="Tags" name="Tags" value="Post Teste" class="form-control" data-role="tagsinput" placeholder="Add tags">
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Request.IsAuthenticated)
+        {
+            <button type="submit" class="btn btn-primary">Inserir</button>
+        }
+        else
+        {            
+            @Html.ActionLink("Logar para inserir", "Logar", "Usuario", new { returnUrl = "/Post/Inserir" }, null)
+        }
+    }
+</div>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Content/Tag/bootstrap-tagsinput.js"></script>
+<link href="~/Content/Tag/bootstrap-tagsinput.css" rel="stylesheet" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
