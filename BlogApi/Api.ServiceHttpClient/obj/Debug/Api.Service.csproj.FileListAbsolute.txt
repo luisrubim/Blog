@@ -1,0 +1,14 @@
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Api.Service.dll
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Api.Service.pdb
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Api.Dominio.dll
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Api.Helper.dll
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Business.Entitie.dll
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Api.Dominio.pdb
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Api.Helper.pdb
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Business.Entitie.pdb
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\obj\Debug\Api.Service.csprojResolveAssemblyReference.cache
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\obj\Debug\Api.Service.dll
+C:\Sistemas\Giro\Dsv\WebApi\Api.Service\obj\Debug\Api.Service.pdb
